@@ -1,0 +1,57 @@
+<!--
+<!DOCTYPE html>
+<html>
+  <head><title>Hello world</title></head>
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    var socket = io();
+  </script>
+  <body>Hello world</body>
+</html>
+-->
+
+
+<!--
+<!DOCTYPE html>
+<html>
+	<head><title>Hello world</title></head>
+	<script src="/socket.io/socket.io.js"></script>
+	<script>
+
+function on(){
+console.log("on clicked");
+socket.emit('button_click', "on");
+
+}
+function off(){
+console.log("off clicked");
+socket.emit('button_click', "off");
+}
+var socket = io.connect('http://35.154.174.246:5001');
+socket.on('newclientconnect',function(data){
+document.getElementById("msg").textContent=data.description;
+});
+	</script>
+	<body>Welcome</body><br />
+<button onclick='on()'>on</button>
+<button onclick='off()'>off</button>
+<br />
+<span id="msg"></span>
+</html>
+-->
+
+
+<!DOCTYPE html>
+<html>
+	<head><title>Hello world</title></head>
+	<script src="/socket.io/socket.io.js"></script>
+	<script>
+
+var socket = io.connect('http://35.154.174.246:5001');
+socket.on('bulb_state',function(data){
+document.body.innerHTML='';
+document.write("bulb is :"data.status);
+});
+	</script>
+	<body>Welcome</body><br />
+</html>
